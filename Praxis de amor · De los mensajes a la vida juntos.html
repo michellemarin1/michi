@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Praxis de amor · De los mensajes a la vida juntos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;800&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff6f3;--card:#fff;--ink:#3a2530;--mut:#7d6470;--rose:#e0507a;--rose2:#ffd9e4;--gold:#f2b84b;--mint:#cdeedd;--line:#f1d3dc;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1d1519;--card:#2a1d24;--ink:#f6e8ee;--mut:#c2a5b2;--rose:#ff7aa0;--rose2:#4a2433;--mint:#1f3a2e;--line:#4a3039}}
+:root[data-theme="dark"]{--bg:#1d1519;--card:#2a1d24;--ink:#f6e8ee;--mut:#c2a5b2;--rose:#ff7aa0;--rose2:#4a2433;--mint:#1f3a2e;--line:#4a3039}
+html{scroll-padding-top:calc(120px + env(safe-area-inset-top,0px));scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 'Nunito',system-ui,sans-serif}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;line-height:1.15;margin:0 0 .4em}
+.wrap{max-width:960px;margin:0 auto;padding:0 18px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:2px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:21}
+.bar{display:flex;align-items:center;gap:12px;padding:10px 0;flex-wrap:wrap}
+.brand{font:800 20px 'Fraunces',serif;color:var(--rose)}
+.prog{flex:1;min-width:150px;font-size:14px;color:var(--mut)}
+.track{height:10px;background:var(--rose2);border-radius:9px;overflow:hidden;margin-top:3px}
+.fill{height:100%;width:0;background:linear-gradient(90deg,var(--rose),var(--gold));transition:width .5s}
+.btn{border:2px solid var(--rose);background:var(--rose);color:#fff;font:700 15px 'Nunito',sans-serif;padding:8px 16px;border-radius:999px;cursor:pointer}
+.btn.o{background:transparent;color:var(--rose)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+nav{display:flex;gap:6px;overflow-x:auto;padding:0 0 10px;scrollbar-width:thin}
+nav a{flex:none;text-decoration:none;color:var(--ink);font-size:14px;font-weight:700;padding:5px 12px;border-radius:999px;border:2px solid var(--line);background:var(--card)}
+nav a.done{background:var(--mint);border-color:transparent}
+.hero{text-align:center;padding:44px 0 26px}
+.hero h1{font-size:clamp(38px,9vw,66px);color:var(--rose)}
+.hero p{max-width:620px;margin:8px auto 18px;color:var(--mut)}
+.chip{display:inline-block;background:var(--rose2);color:var(--rose);font-weight:800;border-radius:999px;padding:3px 14px;margin:3px}
+.card{background:var(--card);border:2px solid var(--line);border-radius:20px;padding:22px;margin:16px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.mini{background:var(--bg);border:2px solid var(--line);border-radius:16px;padding:14px}
+.mini b{color:var(--rose)}.mini i{display:block;color:var(--mut);font-size:14px}
+section.st{margin:34px 0}
+.num{display:inline-grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--rose);color:#fff;font-weight:800;margin-right:8px}
+.q{color:var(--mut);font-style:italic}
+details{border:2px solid var(--line);border-radius:14px;padding:10px 14px;margin:8px 0;background:var(--bg)}
+summary{cursor:pointer;font-weight:800}
+label.r{display:block;padding:5px 0}
+input[type=range]{width:100%;accent-color:var(--rose)}
+textarea,input[type=text]{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:12px;padding:10px;margin:4px 0}
+.meter{height:26px;background:var(--rose2);border-radius:14px;overflow:hidden}
+.meter div{height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--rose));transition:width .4s}
+.ok{color:#2e9b63;font-weight:800}.no{color:#d0453d;font-weight:800}
+.done-row{margin-top:14px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.cert{text-align:center;border:6px double var(--rose);padding:30px 20px;border-radius:12px;background:var(--card)}
+.cert h2{font-size:clamp(26px,6vw,42px);color:var(--rose)}
+.mono{font:800 22px 'Fraunces',serif;letter-spacing:3px;word-break:break-all}
+footer{text-align:center;color:var(--mut);font-size:14px;padding:30px 0 40px}
+@media print{body *{visibility:hidden}#cert,#cert *{visibility:visible}#cert{position:absolute;left:0;top:0;width:100%}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <div class="bar">
+    <div class="brand">♥ Praxis de amor</div>
+    <div class="prog">Tu avance: <b id="pct">0 %</b><div class="track"><div class="fill" id="fill"></div></div></div>
+    <button class="btn o" id="theme">Modo oscuro</button>
+  </div>
+  <nav id="nav"></nav>
+</div></header>
+
+<main class="wrap">
+<div class="hero">
+  <span class="chip" id="chip1"></span><span class="chip" id="chip2"></span>
+  <h1>Praxis de amor</h1>
+  <p>Mi regalo de mesario para ti, mi amor · Siete estaciones para recordar, sentir, jugar, prometer y soñar juntos.</p>
+  <button class="btn" onclick="go('s1')">Comenzar la ruta</button>
+  <button class="btn o" onclick="go('s8')">Ir a Refuerzo</button>
+</div>
+
+<div class="card">
+  <h3>Nuestra historia, mes a mes ♥</h3>
+  <p>Mi amor, esta página es mi regalo para ti. Es una ruta de siete estaciones para recordar todo lo que hemos vivido y soñar lo que viene. Hay cuatro cosas que quiero cuidar contigo para siempre.</p>
+  <div class="grid">
+    <div class="mini"><b>Nuestro camino</b>¿Hacia dónde soñamos ir juntos?<i>Ilusiones</i></div>
+    <div class="mini"><b>Nuestro tiempo</b>¿Cómo disfrutamos cada momento?<i>Momentos</i></div>
+    <div class="mini"><b>Nuestros ingredientes</b>Risas, abrazos, paciencia y mucho cariño.<i>Lo que nos hace nosotros</i></div>
+    <div class="mini"><b>Nuestra cercanía</b>Sentirnos cerca aunque no estemos juntos.<i>Detalles</i></div>
+  </div>
+</div>
+
+<!-- 1 -->
+<section class="st" id="s1"><h2><span class="num">1</span>Recordar</h2><p class="q">¿Cuánto nos queremos hoy?</p>
+<div class="card"><h3>Mi corazón hoy</h3>
+<p>Antes de empezar, dime: del 0 al 10, ¿cuánto sientes que nos queremos hoy?</p>
+<input type="range" id="pre" min="0" max="10" value="5"><div>Hoy siento un <b id="preV">5</b> / 10 de amor</div>
+<h3 style="margin-top:18px">Lo que creo de nosotros</h3>
+<p>¿Qué crees que hace tan especial lo nuestro? Escríbelo con el corazón.</p>
+<textarea id="hyp" rows="2" data-save="hyp" placeholder="Lo que más me gusta de nosotros es…"></textarea></div>
+<div class="done-row"><button class="btn" data-s="1">Completar estación 1</button></div></section>
+
+<!-- 2 -->
+<section class="st" id="s2"><h2><span class="num">2</span>Sentir</h2><p class="q">Lo que hace especial lo nuestro</p>
+<div class="card">
+<details><summary>Nuestro camino · Soñar hacia el mismo lado</summary><p>No basta con querernos mucho: lo más bonito es mirar hacia el mismo horizonte. Contigo me imagino viajes, risas y una vida tranquila. <b>Pregúntate:</b> ¿qué sueño tenemos los dos para este año?</p></details>
+<details><summary>Nuestro tiempo · Cada momento cuenta</summary><p>Entre estudio, trabajo, familia y amigos, los ratos que compartimos son oro. Una llamada, un café o una caminata juntos hacen que el día valga la pena. <b>Pregúntate:</b> ¿qué plan pequeño podemos hacer esta semana?</p></details>
+<details><summary>Nuestros ingredientes · Lo que nos hace nosotros</summary><p>Un poco de risa, mucha paciencia, abrazos largos, escucharnos sin prisa y bromas que solo entendemos los dos. Esa es nuestra receta. <b>Pregúntate:</b> ¿qué ingrediente quieres que cuidemos más?</p></details>
+<details><summary>Nuestra cercanía · Aunque haya distancia</summary><p>Un mensaje de buenos días, una nota de voz o una foto tonta hacen que la distancia pese menos. Los detalles pequeños son los que más se sienten. <b>Pregúntate:</b> ¿qué gesto diario te hace sentir más cerca de mí?</p></details>
+</div>
+<div class="done-row"><button class="btn" data-s="2">Completar estación 2</button></div></section>
+
+<!-- 3 -->
+<section class="st" id="s3"><h2><span class="num">3</span>Jugar</h2><p class="q">¿Qué pasa cuando hay más abrazos y risas?</p>
+<div class="card"><h3>Medidor de amor y felicidad</h3>
+<p>Primero adivina cuánta felicidad crees que tenemos y luego mueve los controles. Mi apuesta: <select id="pred"><option>baja</option><option selected>media</option><option>alta</option></select></p>
+<label>Abrazos al día: <b id="v1">5</b><input type="range" id="a" min="0" max="10" value="5"></label>
+<label>Risas compartidas: <b id="v2">5</b><input type="range" id="b" min="0" max="10" value="5"></label>
+<label>Tiempo de calidad (horas): <b id="v3">2</b><input type="range" id="c" min="0" max="8" value="2"></label>
+<label>Mensajes de buenos días y buenas noches: <b id="v4">1</b><input type="range" id="d" min="0" max="4" value="1"></label>
+<div class="meter" style="margin-top:12px"><div id="meter"></div></div>
+<p id="simOut" style="font-weight:800"></p>
+<textarea id="log" rows="2" data-save="log" placeholder="Mi nota: ¿qué descubrí sobre nosotros?"></textarea></div>
+<div class="done-row"><button class="btn" data-s="3">Completar estación 3</button></div></section>
+
+<!-- 4 -->
+<section class="st" id="s4"><h2><span class="num">4</span>Conocernos</h2><p class="q">¿Qué tanto nos conocemos?</p>
+<div class="card"><h3>Reto: ¿qué tanto me conoces?</h3><div id="quiz"></div>
+<button class="btn" id="check">Comprobar respuestas</button> <b id="score"></b></div>
+<div class="done-row"><button class="btn" data-s="4">Completar estación 4</button></div></section>
+
+<!-- 5 -->
+<section class="st" id="s5"><h2><span class="num">5</span>Prometer</h2><p class="q">Lo que te prometo a ti</p>
+<div class="card"><h3>Nuestras promesas de amor</h3>
+<p>Escribe una promesa pequeña y sincera para cada una. Cada promesa llena un corazón.</p>
+<label>Nuestro camino: un sueño que quiero cumplir contigo</label><textarea rows="2" data-save="m1" class="mem"></textarea>
+<label>Nuestro tiempo: algo que haremos juntos muy seguido</label><textarea rows="2" data-save="m2" class="mem"></textarea>
+<label>Nuestros ingredientes: lo que más cuidaré de nosotros</label><textarea rows="2" data-save="m3" class="mem"></textarea>
+<label>Nuestra cercanía: el detalle que tendré contigo cada día</label><textarea rows="2" data-save="m4" class="mem"></textarea>
+<p>Promesas hechas: <b id="crit">0</b> / 4 ♥</p></div>
+<div class="done-row"><button class="btn" data-s="5">Completar estación 5</button></div></section>
+
+<!-- 6 -->
+<section class="st" id="s6"><h2><span class="num">6</span>Agradecer</h2><p class="q">¿Qué ha cambiado en nuestro corazón?</p>
+<div class="card"><h3>Antes y después</h3>
+<p>Al empezar sentías un <b id="preShow">5</b> de amor. Ahora, ¿cuánto?</p>
+<input type="range" id="post" min="0" max="10" value="5"><div>Ahora: <b id="postV">5</b> / 10 · <span id="delta"></span></div>
+<h3 style="margin-top:18px">Diario guiado</h3>
+<textarea id="diary" rows="4" data-save="diary" placeholder="Hoy me di cuenta de que… / Lo que más agradezco de ti es…"></textarea></div>
+<div class="done-row"><button class="btn" data-s="6">Completar estación 6</button></div></section>
+
+<!-- 7 -->
+<section class="st" id="s7"><h2><span class="num">7</span>Soñar</h2><p class="q">¿Qué más quiero vivir contigo?</p>
+<div class="card"><h3>Nuestro futuro: lista de sueños</h3>
+<input type="text" id="dream" placeholder="Un viaje, una casa, una mascota…"> <button class="btn" id="addDream">Agregar</button>
+<ul id="dreams"></ul></div>
+<div class="card"><h3>Mensaje secreto de amor</h3>
+<p>Escribe un mensaje de amor y envíalo en clave secreta. Solo se descifra con el mismo número, como un secreto de los dos.</p>
+<input type="text" id="msg" value="TE AMO PABLO"><label>Número secreto: <b id="kv">3</b><input type="range" id="key" min="1" max="25" value="3"></label>
+<div class="mono" id="cipher"></div></div>
+<div class="done-row"><button class="btn" data-s="7">Completar estación 7</button></div></section>
+
+<!-- Refuerzo -->
+<section class="st" id="s8"><h2>Refuerzo</h2><p class="q">¿Un día difícil? Aquí estoy.</p>
+<div class="card"><p>Cuando el día pese, aquí tienes un recordatorio para ti.</p>
+<button class="btn" id="boost">Dame ánimo</button><p id="boostTxt" style="font-weight:800;font-size:20px"></p></div></section>
+
+<!-- Certificado -->
+<section class="st" id="s9"><h2>Certificado</h2>
+<div class="card"><p>Se desbloquea al completar las siete estaciones. Es mi regalo final para ti ♥</p>
+<input type="text" id="who" value="Pablo"><br>
+<button class="btn" id="gen" disabled>Generar certificado</button></div>
+<div class="cert" id="cert" hidden>
+  <p>♥ Praxis de amor ♥</p><h2>Certificado de amor eterno</h2>
+  <p><b id="cFrom">Michelle</b> le otorga este certificado a</p><h2 id="cName"></h2>
+  <p>por ser el mejor novio del mundo, por hacerme la persona más feliz y por recorrer conmigo cada estación de nuestra historia.</p>
+  <p style="font:800 26px 'Fraunces',serif;color:var(--rose)">¡Lo amo intensamente, hoy y todos los días! ♥</p>
+  <p id="cDate"></p><p style="font:800 24px 'Fraunces',serif" id="cSign"></p>
+  <button class="btn o" onclick="window.print()">Imprimir</button>
+</div></section>
+</main>
+<footer>© Praxis de amor · hecho con cariño para ti ♥</footer>
+
+<script>
+/* ============================================================
+   ✏️  PARTES EDITABLES
+   ============================================================ */
+const CFG = {
+  him: "Pablo", me: "Michelle",
+  start: [2024, 3, 8],                 // año, mes, día en que empezaron
+  monthsLabel: "2 años 8 meses",
+  boosts: [
+    "Estoy muy orgullosa de ti. Un paso a la vez, yo estoy contigo.",
+    "Respira. Lo estás haciendo mejor de lo que crees.",
+    "Eres mi persona de confort, siempre.",
+    "Pase lo que pase hoy, al final del día me tienes a mí. ♥"
+  ],
+  // Preguntas del reto (cámbialas por datos reales de ustedes). ans = posición correcta (empieza en 0)
+  quiz: [
+    {q: "¿Qué día de cada mes celebramos nuestro mesario?", o: ["El 1", "El 8", "El 15"], ans: 1},
+    {q: "¿Cuánto tiempo llevamos juntos?", o: ["1 año 8 meses", "2 años 8 meses", "3 años"], ans: 1},
+    {q: "¿Quién es el fan número 1 de quién?", o: ["Michelle de Pablo", "Pablo de su café", "Nadie, somos ingenieros"], ans: 0},
+    {q: "¿Quién es mi persona de confort?", o: ["Mi almohada", "Mi gatito", "Pablo"], ans: 2},
+    {q: "¿Cuántos meses llevamos en total?", o: ["30", "32", "36"], ans: 1}
+  ]
+};
+/* ============================================================ */
+const $ = id => document.getElementById(id);
+const store = {
+  get(k, d) { try { const v = localStorage.getItem("pa_" + k); return v === null ? d : JSON.parse(v); } catch (e) { return d; } },
+  set(k, v) { try { localStorage.setItem("pa_" + k, JSON.stringify(v)); } catch (e) {} }
+};
+function go(id) { $(id).scrollIntoView({behavior: "smooth"}); }
+
+// Encabezado
+const days = Math.floor((Date.now() - new Date(CFG.start[0], CFG.start[1] - 1, CFG.start[2])) / 864e5);
+$("chip1").textContent = CFG.me + " ♥ " + CFG.him;
+$("chip2").textContent = "Llevamos " + days.toLocaleString("es") + " días";
+$("cSign").textContent = "con todo mi amor, " + CFG.me + " ♥";
+$("cFrom").textContent = CFG.me;
+
+// Tema
+$("theme").onclick = () => {
+  const dark = document.documentElement.dataset.theme === "dark" ||
+    (!document.documentElement.dataset.theme && matchMedia("(prefers-color-scheme:dark)").matches);
+  document.documentElement.dataset.theme = dark ? "light" : "dark";
+  $("theme").textContent = dark ? "Modo oscuro" : "Modo claro";
+};
+
+// Navegación y progreso
+const names = ["Recordar", "Sentir", "Jugar", "Conocernos", "Prometer", "Agradecer", "Soñar"];
+$("nav").innerHTML = names.map((n, i) => '<a href="#s' + (i + 1) + '" id="n' + (i + 1) + '">' + (i + 1) + " · " + n + "</a>").join("") +
+  '<a href="#s8">Refuerzo</a><a href="#s9">Certificado</a>';
+let done = store.get("done", []);
+function paint() {
+  const p = Math.round(done.length / 7 * 100);
+  $("pct").textContent = p + " %"; $("fill").style.width = p + "%";
+  for (let i = 1; i <= 7; i++) $("n" + i).classList.toggle("done", done.includes(i));
+  document.querySelectorAll("[data-s]").forEach(b => {
+    const s = +b.dataset.s; b.textContent = done.includes(s) ? "Estación " + s + " completada ✓" : "Completar estación " + s;
+    b.classList.toggle("o", done.includes(s));
+  });
+  $("gen").disabled = done.length < 7;
+}
+document.querySelectorAll("[data-s]").forEach(b => b.onclick = () => {
+  const s = +b.dataset.s;
+  done = done.includes(s) ? done.filter(x => x !== s) : done.concat(s);
+  store.set("done", done); paint();
+  if (done.includes(s) && s < 7) go("s" + (s + 1));
+});
+paint();
+
+// Textos guardados automáticamente
+document.querySelectorAll("[data-save]").forEach(t => {
+  t.value = store.get(t.dataset.save, ""); 
+  t.addEventListener("input", () => { store.set(t.dataset.save, t.value); crit(); });
+});
+function crit() { $("crit").textContent = [...document.querySelectorAll(".mem")].filter(t => t.value.trim().length > 8).length; }
+crit();
+
+// 1 y 6: antes y después
+$("pre").value = store.get("pre", 5); $("preV").textContent = $("pre").value; $("preShow").textContent = $("pre").value;
+$("pre").oninput = () => { $("preV").textContent = $("pre").value; $("preShow").textContent = $("pre").value; store.set("pre", +$("pre").value); delta(); };
+$("post").value = store.get("post", 5); $("postV").textContent = $("post").value;
+function delta() {
+  const d = $("post").value - $("pre").value;
+  $("delta").textContent = d > 0 ? "¡Subimos " + d + " punto(s)!" : d < 0 ? "Hablemos y lo mejoramos juntos." : "Seguimos igual de fuertes.";
+}
+$("post").oninput = () => { $("postV").textContent = $("post").value; store.set("post", +$("post").value); delta(); };
+delta();
+
+// 3: simulador
+function sim() {
+  const a = +$("a").value, b = +$("b").value, c = +$("c").value, d = +$("d").value;
+  $("v1").textContent = a; $("v2").textContent = b; $("v3").textContent = c; $("v4").textContent = d;
+  const s = Math.round((a / 10 * 25) + (b / 10 * 30) + (c / 8 * 30) + (d / 4 * 15));
+  $("meter").style.width = s + "%";
+  const lvl = s < 40 ? "baja" : s < 70 ? "media" : "alta";
+  $("simOut").textContent = "Felicidad: " + s + " % (" + lvl + ")" + (lvl === $("pred").value ? " · ¡tu predicción acertó!" : " · tu predicción fue " + $("pred").value);
+}
+["a", "b", "c", "d", "pred"].forEach(i => $(i).addEventListener("input", sim)); sim();
+
+// 4: reto
+$("quiz").innerHTML = CFG.quiz.map((x, i) => '<p><b>' + (i + 1) + '. ' + x.q + '</b></p>' +
+  x.o.map((o, j) => '<label class="r"><input type="radio" name="q' + i + '" value="' + j + '"> ' + o + '</label>').join("") + '<div id="f' + i + '"></div>').join("");
+$("check").onclick = () => {
+  let ok = 0;
+  CFG.quiz.forEach((x, i) => {
+    const s = document.querySelector('input[name="q' + i + '"]:checked'), good = s && +s.value === x.ans;
+    if (good) ok++;
+    $("f" + i).innerHTML = good ? '<span class="ok">¡Correcto!</span>' : '<span class="no">Respuesta: ' + x.o[x.ans] + '</span>';
+  });
+  $("score").textContent = "Puntaje: " + ok + " / " + CFG.quiz.length + (ok === CFG.quiz.length ? " ♥ ¡me conoces perfecto!" : "");
+};
+
+// 7: sueños y cifrado
+let dreams = store.get("dreams", []);
+function drawDreams() { $("dreams").innerHTML = dreams.map(d => "<li>" + d.replace(/</g, "&lt;") + "</li>").join(""); }
+$("addDream").onclick = () => { const v = $("dream").value.trim(); if (!v) return; dreams.push(v); store.set("dreams", dreams); $("dream").value = ""; drawDreams(); };
+drawDreams();
+function enc() {
+  const k = +$("key").value; $("kv").textContent = k;
+  $("cipher").textContent = $("msg").value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase()
+    .replace(/[A-Z]/g, c => String.fromCharCode((c.charCodeAt(0) - 65 + k) % 26 + 65));
+}
+$("msg").oninput = $("key").oninput = enc; enc();
+
+// Refuerzo y certificado
+let bi = 0; $("boost").onclick = () => { $("boostTxt").textContent = CFG.boosts[bi++ % CFG.boosts.length]; };
+$("gen").onclick = () => {
+  $("cName").textContent = $("who").value || CFG.him;
+  $("cDate").textContent = new Date().toLocaleDateString("es", {day: "numeric", month: "long", year: "numeric"});
+  $("cert").hidden = false; go("cert");
+};
+</script>
+</body>
+</html>
